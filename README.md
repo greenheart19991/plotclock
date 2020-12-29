@@ -4,8 +4,8 @@ A robotic clock that writes current time with a marker.
 
 The way it functions is simple: the robot draws the time
 on every new minute. At the beginning of a minute previously
-drawn time becomes erased and new current one appears
-on the board again.
+drawn time becomes erased and new one appears on the board
+again.
 
 <p align="center">
   <img width="500" src="https://raw.githubusercontent.com/greenheart19991/plotclock/assets/cover.jpg">
@@ -29,12 +29,12 @@ on the board again.
         + [Prepare RTC Module](#prepare-rtc-module)
         + [Setup Voltage Regulator](#setup-voltage-regulator)
         + [Wiring Diagram](#wiring-diagram)
-    - [Assembled Project Example](#assembled-project-example)
+    - [Assembled Project](#assembled-project)
 * [Firmware](#firmware)
     - [Installation](#installation)
     - [Calibration](#calibration)
 * [Operating Details](#operating-details)
-    - [Positioning To a Specific Point](#positioning-to-a-specific-point)
+    - [Positioning To Specific Point](#positioning-to-specific-point)
     - [Drawing Chars](#drawing-chars)
     - [Boundaries](#boundaries)
 * [Customization](#customization)
@@ -44,11 +44,12 @@ on the board again.
 ## Prerequisites
 
 ### Software
+
 * Arduino IDE;
 * KOMPAS-3D v18 in case you want to customize components.
 
 ### Hardware & Supplies
-* 3d-printer to print the components;
+
 * Arduino UNO (any Rev);
 * SG90 servo motors - x3;
 * LM2596S step-down voltage regulator;
@@ -58,7 +59,10 @@ on the board again.
 * 5.5 x 2.1mm DC Female to 2 Male power splitter cable;
 * 5.5 x 2.1mm power jack socket;
 * DC power supply 12V 2A;
-* Whiteboard marker (dry-wipe)
+* Whiteboard marker (dry-wipe);
+
+##### Screws & Nuts
+
 * M3 x 12mm pan head screws - x8; 
 * M3 x 16mm pan head screws - x1;
 * M2.5 x 16mm pan head screws - x7; 
@@ -67,8 +71,10 @@ on the board again.
 * M3 washers - x7;
 * M2.5 washers - x1;
 * SG90 default screws;
+
+##### Other
+
 * Jumper wires;
-* Soldering iron, solder, flux;
 * Some glue;
 * Some screws and nuts to fix the circuits.
 
@@ -77,17 +83,16 @@ on the board again.
 It is designed to print all of the robot components with 3d-printer.
 But you are free to choose another way to produce them.
 
-You can find 3d-models of that components under **plotclock_details**
+You can find 3d-models of components under **plotclock_details**
 directory. There are both separate files for each component
 and **all_in_one** file that contains all of them.
-Both exported to STL format and are ready to print.
+Both are exported to STL format and ready to print.
 
 ## Assembling
 
 ### Mechanics
 
-To assemble the robot from printed components use the pictures below.
-They provide details about the main stages of robot assembling.
+Put components together according to pictures below.
 
 <p align="center">
   <img width="500" src="https://raw.githubusercontent.com/greenheart19991/plotclock/assets/assembling/mechanics/1.jpg">
@@ -103,10 +108,10 @@ They provide details about the main stages of robot assembling.
 
 Before joining default servo levers to servos themselves
 (on the pictures above they have already been joined), set
-servo shafts in positions according to the following list:
-* servo bottom - all the way to the end of min angle;
-* servo right - all the way to the end of min angle;
-* servo left - all the way to the end of max angle.  
+servo shafts in corresponding positions:
+* servo bottom: all the way to the end of min angle;
+* servo right: all the way to the end of min angle;
+* servo left: all the way to the end of max angle.  
 
 Next, without rotating shafts, attach servo levers to servos
 exactly as on the pictures below. After that you can rotate servo
@@ -120,7 +125,7 @@ shafts as you want and join printed levers.
   <img width="500" src="https://raw.githubusercontent.com/greenheart19991/plotclock/assets/assembling/mechanics/5.jpg">
 </p>
 
-When joining printed levers using screws and nuts, glue nuts to
+When joining levers using screws and nuts, glue nuts to
 levers to prevent them from loosening.
 
 <p align="center">
@@ -190,7 +195,7 @@ below.
 To prevent PCBs from moving make something kind of platform or
 box for them and fix PCBs on it with screws and nuts.
 
-### Assembled Project Example
+### Assembled Project
 
 <p align="center">
   <img width="500" src="https://raw.githubusercontent.com/greenheart19991/plotclock/assets/assembling/assembled_project_example.jpg">
@@ -203,22 +208,21 @@ directory.
 
 ### Installation
 
-To install dependencies copy all libraries from
-**plotclock_code/libraries** directory to your machine's Arduino
-libraries directory. Now you are ready to compile and upload
-the sketch.
+Copy all the libraries from **plotclock_code/libraries** directory
+to your machine's Arduino libraries directory. Now you are
+ready to compile and upload the sketch.
 
 ### Calibration 
 
-For correct marker positioning you should calibrate servo values
-for predefined positions. To do this, set appropriate values for
-next macros of the sketch:
-* `SERVO_LEFT_ANGLE_180` - left servo value for position when
-its lever rotated 180 degrees and is parallel to the board;
-* `SERVO_LEFT_ANGLE_90` - left servo value for position when
-its lever rotated 90 degrees and is perpendicular to the board;
-* `SERVO_RIGHT_ANGLE_0` - right servo value for position when
-its lever rotated 0 degrees and is parallel to the board.
+To be sure marker is positioned correctly you should calibrate
+servo values for some predefined positions. Set appropriate values
+for the following macros in the sketch:
+* `SERVO_LEFT_ANGLE_180` - left servo value when its lever
+rotated 180 degrees and is parallel to the board;
+* `SERVO_LEFT_ANGLE_90` - left servo value when its lever
+rotated 90 degrees and is perpendicular to the board;
+* `SERVO_RIGHT_ANGLE_0` - right servo value when its lever
+rotated 0 degrees and is parallel to the board.
 
 This lever positions are shown in pictures below.
 
@@ -230,7 +234,7 @@ This lever positions are shown in pictures below.
   <img width="500" src="https://raw.githubusercontent.com/greenheart19991/plotclock/assets/firmware/2.jpg">
 </p>
 
-To calibrate vertical marker positioning, change the following
+To calibrate Z-axis marker positioning, change the following
 macros of bottom servo values:
 * `SERVO_BOTTOM_PV_WR_BOTTOM` - position of marker when it touches
 the board and chars becomes written;
@@ -251,24 +255,24 @@ This section describes provided solution for drawing figures
 and intended to help you to deal with sketch and customize
 it if necessary.
 
-### Positioning To a Specific Point
+### Positioning To Specific Point
 
-To move marker to a specific point of a drawing plane
-you have to rotate servo shafts through a specific angle.
+To move marker to specific point of the drawing plane
+you have to rotate servo shafts by specific angle.
 In order to draw a char you have to perform a series
-of movements to a specific points, and for each of them
-you have to have rotation angles for both servo left
+of movements to different points; for each of them
+you have to know rotation angles for both servo left
 and right shafts.
 
-To provide an ability to move the marker specifying
-position of a particular point and not the rotation angles,
-a virtual coordinate plane was defined. The origin of the
-plane is located relative to the servo shafts axes
+To provide an ability to move the marker by specifying
+position of point but not the rotation angles,
+virtual coordinate plane was defined. The origin of the
+plane is located relative to the servo shafts axes,
 and it's position is configurable.
 
-As a number lines unit, millimeter was taken. It thus
-allows you to understand the physical location of particular
-point without additional units conversion.
+Plane lines unit is millimeter. It thus allows you to
+understand the physical location of particular point
+without additional units conversion.
 
 This coordinate plane is shown on picture below.
 Blue, red and green colors indicate the corresponding
@@ -290,21 +294,21 @@ that represent either angles of the servos or those from which
 they can be obtained (servo left angle = FAB, servo right
 angle = 180 - ABG).
 
-Algorithm to find these values is implemented by `getServoAngles`
-function. To move the marker `moveTo` function is used and uses
+Algorithm to find these values is implemented in `getServoAngles`
+function. To move the marker use `moveTo` function. It uses
 `getServoAngles` within itself.
 
 ### Drawing Chars
 
 Since coordinate plane is defined, you can describe any figure
-you want on it with a function. And, as soon as you define a
+you want with a function. And, as soon as you define a
 function, you can draw this figure by iterating over axis values,
-passing them to a function and thus getting the coordinates
-of points that figure outline consists of.
+passing these values to a function and thus getting the coordinates
+of points that outline of figure consists of.
 
 Exactly this way all chars becomes drawn. But, in order to simplify
-functions, chars are described as a set of functions of several primitives
-on the plane. These are lines, circles and ellipses.
+functions, chars are described as a set of primitives.
+These are lines, circles and ellipses.
 
 For example, number '1' consists of 2 lines, while number '8' is
 2 ellipses. Hence, to draw these numbers the robot sequentially
@@ -312,20 +316,20 @@ draw their primitives.
 
 ### Boundaries
 
-Due to design, not all of the board surface area are available
+Due to design features, not all of the board surface area is available
 for drawing. For current design all the points that the robot can
-positions relative to coordinate plane is shown on picture below.
+positions is shown on picture below.
 
-This area is indicated in red. Also, the board was added to
-the picture according to its actual location. Black
-rectangle indicates the max area determined for drawing chars.
+This area is indicated in red. The board is located according
+to its actual location. Black rectangle indicates the max area
+determined for drawing chars.
 
 <p align="center">
   <img width="500" src="https://raw.githubusercontent.com/greenheart19991/plotclock/assets/operation_details/coverage_map.png">
 </p>
 
-Take into account this information if you want to customize
-chars, their position or size, or draw your own figures. 
+Take this information into account if you want to customize
+chars, positions or sizes, or if you going to draw your own figures.
 
 ## Customization
 
@@ -341,14 +345,13 @@ components for new design and define drawing area boundaries.
 ## Known Issues
 
 SG90 are pretty chip servos and cannot provide guaranteed
-ability to rotate their shaft through an angle lower then
+ability to rotate their shaft by an angle lower then
 ~0.75 degree under the marker weight. Therefore quite big
 positioning errors occur. As a result there are jagged lines
 and currently no ability of physically accurate positioning.
 
 To solve it, more accurate and expensive servos should be
-used to give an ability to rotate shafts through at
-least 0.1 degree.
+used to give an ability to rotate shafts by at least 0.1 degree.
 
 ## Acknowledgments
 

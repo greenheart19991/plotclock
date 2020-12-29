@@ -22,17 +22,17 @@ check your design setup and see occurred errors in browser console.
 
 ### Component Settings
 
-All constants are named corresponding to points and segments
-put on created coordinate plane and described in 'Operating Details'
-section of main README. Take a look on the figure provided
-in this section to determine constant components.
+All the constants are named according to points and segments
+described in 'Operating Details' section of main README.
+Take a look on the figure provided in this section to determine
+constant components.
 
 ### Display Settings
 
 You can also change some display behaviour. Main setting here
-is `pxInUn` that specifies number of displayed pixels per
+is `pxInUn` that specifies number of display pixels per
 coordinate plane unit. The larger value you set, the larger image
-will be and the higher resolution will have. You can find this
+will be, and the higher resolution you will have. You can find this
 setting under `show points on page` section in code. 
 
 ### Overlay Components 
@@ -45,9 +45,9 @@ mockup as well as example result of tool usage
 
 ## Known Issues
 
-Due to the numbers representation in computer, calculation
-errors takes place. Thus for some **correct** design settings
-an error can be thrown and coverage map cannot be rendered.
+Due to representation of numbers in computer, calculation
+errors take place. Thus for some **correct** design settings
+an error can be thrown and coverage map will not be rendered.
 In such situation in console you'll see an error like this:
 
 <p align="center">
